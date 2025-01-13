@@ -36,22 +36,23 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public List<Student> findAllStudent() {
-        return studentRepository.findAll();
+    public List<Student> getStudentByAgeGreaterThan(Integer age) {
+        return studentRepository.findByAgeGreaterThan(age);
     }
 
     @Override
-    public Optional<Student> findById(Long id) {
-        return studentRepository.findById(id);
+    public List<Student> searchStudentsByName(String namePart) {
+        return studentRepository.findStudentsByNameContaining(namePart);
     }
 
     @Override
-    public boolean existsById(Long id) {
-        return studentRepository.existsById(id);
+    public Long countStudentsInClass(Long classId) {
+        return studentRepository.countStudentsByClassId(classId);
     }
 
     @Override
-    public Long countStudents() {
-        return studentRepository.count();
+    public List<Student> getStudentsByClassId(Long classId) {
+        return studentRepository.findStudentsByClassId(classId);
     }
+
 }

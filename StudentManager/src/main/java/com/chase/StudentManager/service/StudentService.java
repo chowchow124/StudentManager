@@ -17,13 +17,15 @@ public interface StudentService {
 
     void deleteById(Long id);
 
-    List<Student> findAllStudent();
+    List<Student> getStudentByAgeGreaterThan(Integer age);
 
-    Optional<Student> findById(Long id);
+    List<Student> searchStudentsByName(String namePart);
 
-    boolean existsById(Long id);
+    Long countStudentsInClass(Long classId);
 
-    Long countStudents();
+    List<Student> getStudentsByClassId(Long classId);
+
+
 
 }
 
